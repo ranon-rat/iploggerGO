@@ -1,2 +1,2 @@
 # iploggerGO
-use ngrok for use this
+use ngrok or something for use this
